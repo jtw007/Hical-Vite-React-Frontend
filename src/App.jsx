@@ -1,34 +1,71 @@
-import { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Routes, 
+  Route,
+} from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import jwt_decode from 'jwt-decode'
+
+//components import
+import NavBar from './components/NavBar'
+import Home from './components/pages/Home'
+import Register from './components/pages/Register'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // the currently logged in user will be stored up here in state
+  const [currentUser, setCurrentUser] = useState(null)
+
+  // useEffect -- if the user navigates away form the page, we will log them back in
+  useEffect(() => {
+    // check to see if token is in storage
+    const token = localStorage.getItem('jwt')
+    if (token) {
+      // if so, we will decode it and set the user in app state
+      setCurrentUser(jwt_decode(token))
+    } else {
+      setCurrentUser(null)
+    }
+  }, []) // happen only once
+
+  const handleLogout = () => {
+    // check to see if a token exists in local storage
+    if (localStorage.getItem('jwt')) {
+      // if so, delete it
+      localStorage.removeItem('jwt')
+      // set the user in the App state to be null
+      setCurrentUser(null)
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <Router>
+      <header>
+        <NavBar 
+          currentUser={currentUser}
+          handleLogout={handleLogout}
+        />
+      </header>
+
+      <div className='App'>
+        <Routes>
+          <Route 
+            path='/'
+            element={<Home />}
+          />
+
+          <Route 
+            path='/register'
+            element={<Register currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      </Router>
+    </div>
   )
 }
 
