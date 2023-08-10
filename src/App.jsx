@@ -12,6 +12,7 @@ import jwt_decode from 'jwt-decode'
 //components import
 import NavBar from './components/NavBar'
 import Home from './components/pages/Home'
+import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
 
 function App() {
@@ -55,6 +56,11 @@ function App() {
           <Route 
             path='/'
             element={<Home />}
+          />
+
+          <Route 
+            path="/profile"
+            element={<Profile handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route 
