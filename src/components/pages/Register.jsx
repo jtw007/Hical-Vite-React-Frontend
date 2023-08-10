@@ -11,6 +11,36 @@ const Register = ({ currentUser, setCurrentUser }) => {
 	const [msg, setMsg] = useState('')
 
     //submit event handler 
+    const handleSubmit = async e => {
+        e.preventDefault()
+        try {
+            //post form data to the backend
+            const reqBody = {
+                name,
+                email,
+                password 
+            }
+            // const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/`, reqBody)
+
+            //save the token in local storage
+            const { token } = response.data
+            localStorage.setItem('jwt', token)
+
+            //decode the token
+            const decoded = jwt_decode(token)
+
+            //set the user in App's state to be the decoded token
+            setCurrentUser(decoded)
+
+        } catch (error) {
+            console.warn(error)
+            if (error.response) {
+                setMsg(error.response.data.msg)
+            }
+        }
+    }
+
+    //conditionally render a navigate component
 
     return (
         <div>Register</div>
