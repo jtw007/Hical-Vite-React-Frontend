@@ -11,6 +11,7 @@ const Home = () => {
         <Link to='/register'>Register for an Account</Link>
         {/* profile link will eventually only be accessible for logged in users only */}
         <Link to='/profile'>Profile</Link> 
+        <Link to='/login'>Login</Link> 
     </div>
   )
 }
