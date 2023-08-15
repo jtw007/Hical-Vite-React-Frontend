@@ -25,19 +25,19 @@ const Register = ({ currentUser, setCurrentUser }) => {
             // const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/`, reqBody)
 
             //save the token in local storage
-            const { token } = response.data
-            localStorage.setItem('jwt', token)
+            // const { token } = response.data
+            // localStorage.setItem('jwt', token)
 
             //decode the token
-            const decoded = jwt_decode(token)
+            // const decoded = jwt_decode(token)
 
             //set the user in App's state to be the decoded token
-            setCurrentUser(decoded)
+            // setCurrentUser(decoded)
 
         } catch (error) {
             console.warn(error)
-            if (error.response) {
-                setMsg(error.response.data.msg)
+            if (error) {
+                setMsg(error)
             }
         }
     }
@@ -68,22 +68,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 <div style={{width: 68, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
                 <div style={{width: 68, height: 18, left: 0, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Full Name</div>
             </div>
-
-            {/* input for email  */}
-            <input 
-                style={{width: 256, height: 55, left: 83, top: 161.56, position: 'absolute', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid'}}
-                type="email"
-                id="email"
-                placeholder=''
-                onChange={e => setEmail(e.target.value)}
-                value={email}
-                required
-            />
-            <div style={{width: 89, height: 18, left: 115, top: 230, position: 'absolute'}}>
-                <div style={{width: 89, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
-                <div style={{width: 89, height: 18, left: 0, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Phone Number</div>
-            </div>
-
+           
             {/* input for phone number */}
             <input 
                 style={{width: 256, height: 55, left: 83, top: 238.56, position: 'absolute', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid'}}
@@ -94,9 +79,9 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 value={phoneNumber}
                 required 
             />
-            <div style={{width: 68, height: 18, left: 115, top: 307, position: 'absolute'}}>
-                <div style={{width: 68, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
-                <div style={{width: 68, height: 18, left: 0, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Password</div>
+            <div style={{width: 89, height: 18, left: 115, top: 230, position: 'absolute'}}>
+                <div style={{width: 89, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
+                <div style={{width: 89, height: 18, left: 0, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Phone Number</div>
             </div>
 
             {/* input for password */}
@@ -109,6 +94,10 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 value={password}
                 required 
             />
+            <div style={{width: 68, height: 18, left: 115, top: 307, position: 'absolute'}}>
+                <div style={{width: 68, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
+                <div style={{width: 68, height: 18, left: 0, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Password</div>
+            </div>
 
             {/* input for confirm password */}
             <input 
@@ -125,7 +114,16 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 <div style={{width: 108, height: 18, left: 0, top: 0, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Confirm Password</div>
             </div>
 
-            
+            {/* input for email  */}
+            <input 
+                style={{width: 256, height: 55, left: 83, top: 161.56, position: 'absolute', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid'}}
+                type="email"
+                id="email"
+                placeholder=''
+                onChange={e => setEmail(e.target.value)}
+                value={email}
+                required
+            />
             <div style={{width: 89, height: 18.21, left: 118, top: 152, position: 'absolute'}}>
                 <div style={{width: 89, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
                 <div style={{width: 82.50, height: 17.83, left: 0, top: 0.38, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Email Address</div>
@@ -139,10 +137,10 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 <span style={{color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '700', letterSpacing: 0.20, wordWrap: 'break-word'}}>Terms & Conditions</span>
             </div>
             
-            <div style={{width: 256, height: 54, left: 83, top: 492, position: 'absolute', background: '#D9D9D9', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid'}} />
-            <div 
+            <button style={{width: 256, height: 54, left: 83, top: 492, position: 'absolute', background: '#D9D9D9', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Create Account</button>
+            {/* <div 
                 style={{width: 216.66, height: 17.83, left: 103, top: 510.08, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Create Account
-            </div>
+            </div> */}
 
             <div style={{width: 295.02, height: 17.83, left: 59, top: 568, position: 'absolute', textAlign: 'center'}}>
                 <span style={{color: '#5F6368', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Already have an account?</span>
