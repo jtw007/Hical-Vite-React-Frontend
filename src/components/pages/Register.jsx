@@ -50,7 +50,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
     return (
         <div id='register-container' style={{width: '100%', height: '100%', position: 'relative', background: 'white'}}>
 
-            <div style={{width: 216.66, height: 17.83, left: 103, top: 34, position: 'relative', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Create Account</div>
+            <div style={{width: 216.66, height: 17.83, left: 103, top: 34, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Create Account</div>
 
 			<form onSubmit={handleSubmit} id='register-form'>
 
@@ -128,6 +128,7 @@ const Register = ({ currentUser, setCurrentUser }) => {
                 <div style={{width: 89, height: 17, left: 0, top: 0, position: 'absolute', background: 'white'}} />
                 <div style={{width: 82.50, height: 17.83, left: 0, top: 0.38, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Email Address</div>
             </div>
+
             {/* check box for the terms and conditions */}
             <div style={{width: 11.06, height: 11.06, left: 93, top: 463.83, position: 'absolute', background: '#D9D9D9', borderRadius: 2, border: '1px solid'}} />
 
@@ -138,22 +139,20 @@ const Register = ({ currentUser, setCurrentUser }) => {
             </div>
             
             <button style={{width: 256, height: 54, left: 83, top: 492, position: 'absolute', background: '#D9D9D9', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Create Account</button>
-            {/* <div 
-                style={{width: 216.66, height: 17.83, left: 103, top: 510.08, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Create Account
-            </div> */}
 
             <div style={{width: 295.02, height: 17.83, left: 59, top: 568, position: 'absolute', textAlign: 'center'}}>
                 <span style={{color: '#5F6368', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Already have an account?</span>
                 <span style={{color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}></span>
-                <span style={{color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '700', letterSpacing: 0.20, wordWrap: 'break-word'}}>Login</span>
+                <span style={{color: 'black', fontSize: 12, fontFamily: 'Roboto', fontWeight: '700', letterSpacing: 0.20, wordWrap: 'break-word'}}><a href='/login'>Login</a></span>
             </div>
 
             </form>
 
-            <div style={{width: 256, height: 54, left: 83, top: 648, position: 'absolute', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid'}} />
+            {/* ===shelving google oauth for now=== */}
+            {/* <div style={{width: 256, height: 54, left: 83, top: 648, position: 'absolute', borderRadius: 40, border: '1px rgba(95, 99, 104, 0.50) solid'}} />
             <div style={{width: 216.66, height: 17.83, left: 128, top: 666, position: 'absolute', textAlign: 'center', color: 'black', fontSize: 16, fontFamily: 'Roboto', fontWeight: '400', letterSpacing: 0.20, wordWrap: 'break-word'}}>Continue with Google</div>
             <div style={{width: 252, height: 0, left: 87, top: 608, position: 'absolute', border: '1.50px #AFB1B3 solid'}}></div>
-            <div style={{width: 26, height: 26, left: 106.62, top: 675, position: 'absolute', transform: 'rotate(-45deg)', transformOrigin: '0 0', background: '#D9D9D9', borderRadius: 9999}} />
+            <div style={{width: 26, height: 26, left: 106.62, top: 675, position: 'absolute', transform: 'rotate(-45deg)', transformOrigin: '0 0', background: '#D9D9D9', borderRadius: 9999}} /> */}
             
 		</div>
     )
