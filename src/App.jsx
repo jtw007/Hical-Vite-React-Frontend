@@ -15,6 +15,8 @@ import Home from './components/pages/Home'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
 import Login from './components/pages/Login'
+import Confirmation from './components/pages/Confirmation'
+import CreateActivity from './components/pages/CreateActivity'
 
 function App() {
   // the currently logged in user will be stored up here in state
@@ -72,6 +74,16 @@ function App() {
           <Route 
             path='/login'
             element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route 
+            path='/confirmation'
+            element={<Confirmation currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route 
+            path='/create-new-activity'
+            element={<CreateActivity currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
         </Routes>
