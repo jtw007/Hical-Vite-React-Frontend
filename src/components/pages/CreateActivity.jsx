@@ -12,6 +12,7 @@ const CreateActivity = () => {
         user: '',
     })
     const [activity, setActivity] = useState('')
+    const [description, setDescription] = useState('')
     // invoke useNavigate hook to get a navigate function to use
     const navigate = useNavigate()
 
@@ -39,6 +40,7 @@ const CreateActivity = () => {
             <form onSubmit={handleSubmit}>
                 <div className='form-container'>
                     <div className=''>
+
                         <label htmlFor='activity-title'>Activity Title</label>
                         <input 
                             type='text'
@@ -48,6 +50,18 @@ const CreateActivity = () => {
                             value={activity}
                             required
                         />
+
+                        <label htmlFor='description'>Description</label>
+                        <textarea 
+                            type='text' 
+                            rows={5}
+                            id='description'
+                            placeholder='Add Description'
+                            onChange={e => setDescription(e.target.value)}
+                            value={description}
+                            
+                        />
+
                     </div>
                 </div>
             </form>
