@@ -39,6 +39,7 @@ const CreateActivity = () => {
 
             <form onSubmit={handleSubmit}>
                 <div className='form-container'>
+
                     <div className=''>
 
                         <label htmlFor='activity-title'>Activity Title</label>
@@ -59,10 +60,12 @@ const CreateActivity = () => {
                             placeholder='Add Description'
                             onChange={e => setDescription(e.target.value)}
                             value={description}
-                            
                         />
 
                     </div>
+
+                    <button>Create</button>
+
                 </div>
             </form>
         </div>
