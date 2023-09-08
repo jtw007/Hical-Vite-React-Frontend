@@ -2,8 +2,11 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate, Navigate } from "react-router-dom"
 import jwt_decode from 'jwt-decode'
+import Autocomplete from "react-google-autocomplete"
 
-const CreateActivity = () => {
+const CreateActivity = () => { 
+    
+    const API_KEY = import.meta.env.VITE_API_KEY 
     //state that holds value user has typed
     const [form, setForm] = useState({
         // initialize all values as empty strings because this is a new activity
