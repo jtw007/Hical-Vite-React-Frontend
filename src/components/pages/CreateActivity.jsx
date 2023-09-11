@@ -6,16 +6,16 @@ import { usePlacesWidget } from 'react-google-autocomplete'
 
 
 const CreateActivity = () => { 
-    const api_key = import.meta.env.VITE_API_KEY
-    const apiUrl=`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_API_KEY}&libraries=places`
-    console.log(`apiurl ${apiUrl}`)
-    const { ref, autocompleteRef } = usePlacesWidget({
-        apiKey:api_key, 
-        apiUrl:apiUrl,
-        onPlaceSelected: (place) => {
-            console.log(place)
-        }
-    })
+    // const api_key = import.meta.env.VITE_API_KEY
+    // const apiUrl=`https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_API_KEY}&libraries=places`
+
+    // const { ref, autocompleteRef } = usePlacesWidget({
+    //     apiKey:api_key, 
+    //     apiUrl:apiUrl,
+    //     onPlaceSelected: (place) => {
+    //         console.log(place)
+    //     }
+    // })
     
     //state that holds value user has typed
     const [form, setForm] = useState({
@@ -67,36 +67,36 @@ const CreateActivity = () => {
 
                         <label htmlFor='address'>Address</label>
                         <input 
-                            autoComplete={autocompleteRef}
-                            ref={ref}
+                            // autoComplete={autocompleteRef}
+                            // ref={ref}
                             id="address" 
                             placeholder="Address" 
                             type="text"
                         />
                         <input 
-                            autoComplete={autocompleteRef}
-                            ref={ref}
+                            // autoComplete={autocompleteRef}
+                            // ref={ref}
                             id="city" 
                             placeholder="City" 
                             type="text"
                         />
                         <input 
-                            autoComplete={autocompleteRef}
-                            ref={ref}
+                            // autoComplete={autocompleteRef}
+                            // ref={ref}
                             id="state" 
                             placeholder="State" 
                             type="text"
                         />
                         <input 
-                            autoComplete={autocompleteRef}
-                            ref={ref}
+                            // autoComplete={autocompleteRef}
+                            // ref={ref}
                             id="country" 
                             placeholder="Country" 
                             type="text"
                         />
                         <input 
-                            autoComplete={autocompleteRef}
-                            ref={ref}
+                            // autoComplete={autocompleteRef}
+                            // ref={ref}
                             id="postcode" 
                             placeholder="Postcode" 
                             type="text"
